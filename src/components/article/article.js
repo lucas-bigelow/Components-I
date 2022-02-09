@@ -115,3 +115,48 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+// step 1
+
+function articleMaker(article) {
+  // create all the node elements
+  const div = document.createElement("div");
+  const h2 = document.createElement("h2");
+  const date = document.createElement("p");
+
+  const p1 = document.createElement("p");
+  const p2 = document.createElement("p");
+  const p3 = document.createElement("p");
+
+  const span = document.createElement("span");
+
+  // add data, like classes, that will be the same for all elements
+  div.className = "article";
+  date.className = "date";
+  span.className = "expandButton";
+
+  span.textContent = "+";
+
+  // add data to the elements based on the article argument
+  h2.textContent = article.title;
+  date.textContent = article.date;
+  p1.textContent = article.firstParagraph;
+  p2.textContent = article.secondParagraph;
+  p3.textContent = article.thirdParagraph;
+
+  // step 2, add the event listener for the span
+
+  div.appendChild(h2);
+  div.appendChild(date);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(span);
+
+  return div;
+}
+
+// add article to the DOM
+
+document.querySelector(".articles").appendChild(articleMaker(data[0]));
+
