@@ -145,6 +145,11 @@ function articleMaker(article) {
   p3.textContent = article.thirdParagraph;
 
   // step 2, add the event listener for the span
+  span.addEventListener('click', evt => {
+    evt.preventDefault();
+
+    div.classList.toggle("article-open");
+  })
 
   div.appendChild(h2);
   div.appendChild(date);
@@ -153,10 +158,13 @@ function articleMaker(article) {
   div.appendChild(p3);
   div.appendChild(span);
 
+  // step 3 :)
   return div;
 }
 
-// add article to the DOM
+// step 4, add articles to the dom based on the data
 
-document.querySelector(".articles").appendChild(articleMaker(data[0]));
+data.forEach(article => {
+  document.querySelector(".articles").appendChild(articleMaker(article));
+})
 
